@@ -1,0 +1,22 @@
+h3 
+  =link_to "Home", root_path 
+
+
+h3 Items
+ul 
+  div 
+    -@purchase.products.each do |product|
+      div
+        = link_to product.name, product
+        
+      div 
+        = link_to "Return product", returns_path(product_id: product.id, purchase_id: @purchase ), method: :post
+      br
+
+div 
+    = @purchase.total
+br   
+div 
+  = link_to "Edit Purchase", edit_purchase_path
+div
+  = link_to "Delete Purchases", purchase_path, method: :delete, data: {confirm: "Do you want to continue?"}

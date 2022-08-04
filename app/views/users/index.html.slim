@@ -1,0 +1,23 @@
+h1 Point Of Sale 
+ul 
+  li
+    = link_to "Products", products_path
+  li 
+    = link_to "Purchase Form", purchases_path
+  li 
+    = link_to "report by date", reports_path
+  li 
+    = link_to "Add User", new_role_path
+
+h3 Users 
+ul
+ 
+-@users.each do |user|
+
+  li = link_to user.name, user 
+
+
+  
+
+
+

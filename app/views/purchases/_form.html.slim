@@ -1,0 +1,26 @@
+= form_with model: purchase, html:{multipart: true} do |form|
+
+  div 
+    = form.label :invoice
+  div 
+    = form.number_field :invoice
+
+  -@purchase.errors.full_messages_for(:invoice).each do |message|
+    div 
+      = message
+  br
+  div
+    = form.label :product_id
+
+  -@products.each do |product|
+    div 
+      =form.check_box :products,  {multiple: true}, product, nil
+      =form.label :products, product 
+    
+    br 
+  div 
+    = @purchase.total
+  div 
+    =form.submit
+ 
+

@@ -1,0 +1,31 @@
+h3 
+    =link_to "Home", root_path 
+
+h1 Search invoice by date 
+= form_with method: :get do |form|
+    div 
+        = form.label :report
+        = form.date_field :start_date, value: params[:start_date]
+    div 
+        = form.label :report
+        = form.date_field :end_date, value: params[:end_date]
+    div
+        =form.submit "search invoices"
+
+
+        ul 
+            -@purchases.each do |purchase|
+                div
+                h3  = "invoice No."
+                li
+                    = link_to purchase.invoice, purchase
+                div
+                    = purchase.total 
+                br
+
+h2 Total (R)
+=  @purchases.joins(:products).sum(:price )
+  
+
+
+                   

@@ -1,0 +1,12 @@
+h3 
+  = link_to "Home", root_path
+
+h1 Invoices
+ul 
+  div 
+    -@purchases.each do |purchase|
+      li 
+        = link_to purchase.invoice, purchase
+      br
+li 
+        = link_to "New Purchase", new_purchase_path

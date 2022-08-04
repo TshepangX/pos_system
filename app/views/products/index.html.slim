@@ -1,0 +1,14 @@
+h3 
+  = link_to "home", root_path
+
+h1 Inventory
+ul
+ 
+  -@products.each do |product|
+
+    li = link_to product.name, product
+    /b #{product.stock} in stock 
+
+  br
+  li 
+    = link_to "New Product", new_product_path
