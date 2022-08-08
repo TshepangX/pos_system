@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :products 
   resources :returns
   resources :roles
-
-  get "/reports", to: "reports#index"
+  resources :reports
   end
   

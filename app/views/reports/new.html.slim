@@ -1,0 +1,17 @@
+h3 
+    =link_to "Home", root_path 
+
+ul Listed by purchases
+-@products.each do |product|
+  li 
+    = link_to product.name, product
+    = product.purchases.count() 
+  
+br
+
+ul Listed by returns
+
+-@product.each do |product|
+  li 
+    = link_to product.name, product
+    = product.returns.count() 

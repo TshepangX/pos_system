@@ -9,4 +9,9 @@ class ReportsController < ApplicationController
         @purchases = Purchase.where(created_at: start_date...end_date)   
     end
   end
+
+  def new 
+     @products = Product.left_joins(:purchases).group(:id).order('COUNT(purchases.id) desc')
+    @product = Product.left_joins(:returns).group(:id).order('COUNT(returns) desc')
+  end
 end

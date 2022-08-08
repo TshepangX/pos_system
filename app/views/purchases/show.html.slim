@@ -8,6 +8,8 @@ ul
     -@purchase.products.each do |product|
       div
         = link_to product.name, product
+      li 
+        = product.price
         
       div 
         = link_to "Return product", returns_path(product_id: product.id, purchase_id: @purchase ), method: :post
@@ -15,8 +17,17 @@ ul
 
 div 
     = @purchase.total
-br   
-div 
-  = link_to "Edit Purchase", edit_purchase_path
-div
-  = link_to "Delete Purchases", purchase_path, method: :delete, data: {confirm: "Do you want to continue?"}
+br 
+
+ul 
+- if current_user.role == 'owner'
+  div 
+    = link_to "Edit Purchase", edit_purchase_path
+  div
+    = link_to "Delete Purchases", purchase_path, method: :delete, data: {confirm: "Do you want to continue?"}
+- elsif current_user.role == 'manager'
+  div 
+    = link_to "Edit Purchase", edit_purchase_path
+  div
+    = link_to "Delete Purchases", purchase_path, method: :delete, data: {confirm: "Do you want to continue?"}
+-else

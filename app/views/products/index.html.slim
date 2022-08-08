@@ -6,8 +6,12 @@ ul
  
   -@products.each do |product|
 
-    li = link_to product.name, product
-    /b #{product.stock} in stock 
+    div 
+      = link_to product.name, product
+    li
+      = product.price 
+    br
+     
 
   br
   li 

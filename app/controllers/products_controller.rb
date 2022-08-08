@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @purchases = @product.purchases
     @purchase = @product.price
+   
   end 
 
   def new 

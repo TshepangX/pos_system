@@ -4,5 +4,6 @@ class Product < ApplicationRecord
   has_many :returns
 
   validates :name, presence: true 
+
 end
 
